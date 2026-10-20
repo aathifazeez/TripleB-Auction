@@ -1,14 +1,25 @@
+const path = require("path");
+
+const supabaseHostname = process.env.NEXT_PUBLIC_SUPABASE_URL
+  ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
+  : undefined;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: path.join(__dirname),
   images: {
     unoptimized: process.env.NODE_ENV === "development",
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "jdlnwaiiegdmpqbzuztu.supabase.co",
-        pathname: "/storage/v1/object/public/**",
-      },
+      ...(supabaseHostname
+        ? [
+            {
+              protocol: "https",
+              hostname: supabaseHostname,
+              pathname: "/storage/v1/object/public/**",
+            },
+          ]
+        : []),
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",

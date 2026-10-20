@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Backgrounds ── */
+  --color-bg:              #0a0e1a;
+  --color-surface:         #111827;
+  --color-surface-raised:  #1a2234;
+  --color-surface-high:    #1f2d45;
+
+  /* ── Borders ── */
+  --color-border:          #1f2937;
+  --color-border-subtle:   #161e2d;
+
+  /* ── Gold accent ── */
+  --color-gold:            #f59e0b;
+  --color-gold-bright:     #fbbf24;
+  --color-gold-dim:        #78350f;
+  --color-gold-glow:       rgba(245, 158, 11, 0.25);
+
+  /* ── Text ── */
+  --color-text:            #f9fafb;
+  --color-text-muted:      #9ca3af;
+  --color-text-subtle:     #6b7280;
+
+  /* ── Status ── */
+  --color-success:         #10b981;
+  --color-success-dim:     #064e3b;
+  --color-error:           #ef4444;
+  --color-error-dim:       #450a0a;
+
+  /* ── Player role colours ── */
+  --color-batsman:         #3b82f6;
+  --color-batsman-dim:     #1e3a5f;
+  --color-bowler:          #ef4444;
+  --color-bowler-dim:      #450a0a;
+  --color-allrounder:      #8b5cf6;
+  --color-allrounder-dim:  #2e1065;
+  --color-wk:              #f59e0b;
+  --color-wk-dim:          #78350f;
+
+  /* ── Fonts ── */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body:    "Inter", sans-serif;
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-subtle);
+}
+
+/* ── Text selection ── */
+::selection {
+  background: var(--color-gold-dim);
+  color: var(--color-gold-bright);
+}
